@@ -36,25 +36,41 @@ class AdvancedPoint(ColorPoint): #This means that advanced point inherit everyth
     def add_color(cls, new_color):
         cls.COLORS.append(new_color)
 
-p = AdvancedPoint(1, 2, "red")
-print(p)
-print(p.distance_orig())
+    @staticmethod
+    def distance_2_points(p1, p2):
+        return ((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2)**0.5
+
+    @staticmethod
+    def from_dictionary(dict):
+        x = dict.get("x", 10)
+        y = dict.get("y", 20)
+        color = dict.get("color", "black")
+        return AdvancedPoint(x, y, color)
+
+p4 = AdvancedPoint.from_dictionary({})
+print(p4)
+
+p2 = AdvancedPoint(1, 2, "red")
+# print(p2)
+# print(p2.distance_orig())
 
 # p = AdvancedPoint("jon", "jeb", "blue")
 # print(p)
 # print(p.distance_orig())
 
 AdvancedPoint.add_color("amber")
-p2 = AdvancedPoint(9, 3, "amber")
+p3 = AdvancedPoint(-1, -2, "amber")
 # print(p2)
 # print(p2.distance_orig())
 # print(p2.color)
 # p2.color = "Bob"
 # print(p2.color)
 
-p2.color = "blue"
+# p2.color = "blue"
 
-print(p2)
+print(AdvancedPoint.distance_2_points(p3, p2))
+
+# print(p3)
 # print(p2.x)
 # print(p2.y)
 # print(p2.color)

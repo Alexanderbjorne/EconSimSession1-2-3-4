@@ -1,5 +1,5 @@
 import random
-from ftplib import parse227  # not used in this script, can probably be removed
+from ftplib import parse227
 
 class Point:
     """
